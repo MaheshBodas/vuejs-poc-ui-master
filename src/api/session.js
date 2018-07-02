@@ -6,6 +6,7 @@ const CSRF_HEADER_NAME = 'X-CSRFToken'
 const session = axios.create({
   baseURL: process.env.BASE_API, // api of base_url
   timeout: 15000, // Request timeout
+  withCredentials: true,
   xsrfCookieName: CSRF_COOKIE_NAME,
   xsrfHeaderName: CSRF_HEADER_NAME
 })
