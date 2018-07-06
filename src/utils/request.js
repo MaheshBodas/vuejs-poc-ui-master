@@ -2,7 +2,7 @@ import axios from 'axios'
 // import { Message, MessageBox } from 'element-ui'
 import { Message } from 'element-ui'
 import store from '../store'
-// import { getToken } from '@/utils/auth'
+import { getToken } from '@/utils/auth'
 
 // Create axios instance
 /*
@@ -11,23 +11,26 @@ const service = axios.create({
   timeout: 15000 // Request timeout
 })
 */
-const CSRF_COOKIE_NAME = 'csrftoken'
-const CSRF_HEADER_NAME = 'X-CSRFToken'
+// const CSRF_COOKIE_NAME = 'csrftoken'
+// const CSRF_HEADER_NAME = 'X-CSRFToken'
 
 const session = axios.create({
   baseURL: process.env.BASE_API, // api of base_url
   timeout: 15000, // Request timeout
-  withCredentials: true,
-  xsrfCookieName: CSRF_COOKIE_NAME,
-  xsrfHeaderName: CSRF_HEADER_NAME
+  withCredentials: true
+  // xsrfCookieName: CSRF_COOKIE_NAME,
+  // xsrfHeaderName: CSRF_HEADER_NAME
 })
 
 // Request interceptor
 session.interceptors.request.use(config => {
-  // if (store.getters.token) {
-  // config.headers['X-Token'] = getToken() // Let each request carry a custom token Please modify it according to the actual situation
-  // session.defaults.headers.Authorization = 'Token ' + getToken()
-  // }
+  console.log('Inside session.interceptors.request.use config')
+  if (store.getters.token) {
+    // config.headers['X-Token'] = getToken() // Let each request carry a custom token Please modify it according to the actual situation
+    var strToken = 'Token ' + getToken()
+    console.log('Sending Authorization as ' + strToken)
+    config.headers['Authorization'] = strToken
+  }
   // config.headers['Access-Control-Allow-Origin'] = '*'
   // config.headers['Access-Control-Allow-Methods'] = 'GET, PUT, POST, DELETE, OPTIONS'
   return config
