@@ -31,18 +31,35 @@ const user = {
 
   actions: {
     // log in
-    Login({ commit }, userInfo) {
+    Login({ commit, state }, userInfo) {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
         auth.login(username, userInfo.password).then(response => {
           const data = response
           console.log('Login Data')
           console.log(data)
-          setToken(data.token)
-          commit('SET_TOKEN', data.token)
+          setToken(data.key)
+          commit('SET_TOKEN', data.key)
           commit('SET_LOGIN_NAME', username)
           resolve()
         }).catch(error => {
+          console.log('auth.login fail')
+          reject(error)
+        })
+      })
+    },
+
+    // Get user information
+    GetToken({ commit, state }, userInfo) {
+      const username = userInfo.username.trim()
+      return new Promise((resolve, reject) => {
+        auth.retrievetoken(username, userInfo.password).then(response => {
+          const data = response
+          commit('SET_TOKEN', data.key)
+          console.log('Data token' + data.key)
+          resolve()
+        }).catch(error => {
+          console.log('auth.retrievetoken fail')
           reject(error)
         })
       })
@@ -52,11 +69,13 @@ const user = {
     GetInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         auth.getCurrentUser().then(response => {
+          console.log('auth.getCurrentUser success')
           const userdata = response
           console.log('User Data')
           console.log(userdata)
           resolve()
         }).catch(error => {
+          console.log('auth.getCurrentUser fail')
           reject(error)
         })
       })
@@ -66,6 +85,7 @@ const user = {
       const username = state.login_name
       return new Promise((resolve, reject) => {
         auth.getAccountDetails(username).then(response => {
+          console.log('auth.getAccountDetails success')
           const userdata = response
           console.log('getAccountDetails response')
           // console.log(userdata[0])
@@ -85,6 +105,7 @@ const user = {
           }
           resolve()
         }).catch(error => {
+          console.log('auth.getAccountDetails fail')
           console.log(error)
           reject(error)
         })
