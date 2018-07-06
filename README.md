@@ -1,15 +1,16 @@
-# vueAdmin-template
+# BriteCore PoC UI
 
-> A BriteCorePOCUI allow user to Create RiskTypes and Risk based on RiskTypes. User can browse RiskTypes and Risk. It uses Element UI & axios & iconfont & permission control & lint
+> A BriteCore PoC UI allow user to Create RiskTypes and Risk based on RiskTypes. User can browse RiskTypes and Risk. It uses Element UI & axios & iconfont & permission control & lint
 
-**Live demo:** TBD
+## Demo
+![demo](https://github.com/MaheshBodas/britecore-poc-ui-master/Dashboard.png)
 
 ## Build Setup
 
 ``` bash
 
 # Clone project
-git clone https://github.com/PanJiaChen/vueAdmin-template.git
+git clone https://github.com/MaheshBodas/britecore-poc-ui-master.git
 
 # Install dependencies
 npm install
@@ -25,12 +26,12 @@ npm run build --report
 ```
 
 ## Demo
-![demo](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/demo.gif)
+![demo](https://github.com/MaheshBodas/britecore-poc-ui-master/Dashboard.png)
 
 
 ## License
 [MIT](https://github.com/PanJiaChen/vueAdmin-template/blob/master/LICENSE) license.
-[MIT](https://github.com/PanJiaChen/vueAdmin-template/blob/master/LICENSE) license.
+[MIT](https://github.com/MaheshBodas/britecore-poc-ui-master/LICENSE) license.
 
 Copyright (c) 2017-present PanJiaChen
-Copyright BriteCorePOCUI (c) 2018-present Mahesh Bodas
+Copyright BriteCore PoC UI (c) 2018-present Mahesh Bodas
