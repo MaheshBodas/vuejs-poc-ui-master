@@ -26,7 +26,7 @@ npm run build --report
 ```
 
 ## Demo
-![demo](https://github.com/MaheshBodas/britecore-poc-ui-master/Dashboard.png)
+![demo](https://github.com/MaheshBodas/britecore-poc-ui-master/blob/master/Dashboard.png)
 
 
 ## License
