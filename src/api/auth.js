@@ -5,6 +5,9 @@ export default {
   login(username, password) {
     return session.post('/auth/login/', { username, password })
   },
+  retrievetoken(username, password) {
+    return session.post('/api-token-auth/', { username, password })
+  },
   logout() {
     return session.post('/auth/logout/', {})
   },
