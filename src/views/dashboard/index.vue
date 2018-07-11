@@ -1,28 +1,29 @@
-<template>
-  <div class="dashboard-container">
-    <!-- <div class="dashboard-text" v-if="isAdminUser">Hello I am admin user</div> -->
-    <div class="dashboard-label">Hi, {{name}}</div>
-    <div class="dashboard-label">Roles:<span v-for='role in roles' :key='role'>{{role}}</span></div>
-    <br>
-    <br>
-    <el-carousel :interval="4000" type="card" height="200px">
-      <el-carousel-item v-for="item in helpTextArray" :key="item.id">
-        <div align="center">
-        <b> {{ item.id }}) {{ item.text}} </b>
-      </div>   
-      </el-carousel-item>
-  </el-carousel>
+<template>  
+  <div class="app-container calendar-list-container">
+  <el-container style="height: 500px;width:100%; border: 1px soclid #eee">    
+      <el-header style="height: 90px; border: 1px solid #eee">
+        <div class="dashboard-label">Hi, {{name}}</div>
+        <div class="dashboard-label">Roles:<span v-for='role in roles' :key='role'>{{role}}</span></div>
+      </el-header>       
+      <el-main style="height: 350px; border: 1px solid #eee">  
+        <rotating-display v-bind:helpTextArray="carouselhelptext"></rotating-display>
+      </el-main>
+  </el-container>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import { DashboardConst } from './classes'
+import RotatingDisplay from '@/components/RotatingDisplay'
 export default {
   name: 'dashboard',
+  components: {
+    RotatingDisplay
+  },
   data: function() {
     return {
-      helpTextArray: []
+      carouselhelptext: []
     }
   },
   computed: {
@@ -50,7 +51,7 @@ export default {
     populateHelpText() {
       var i
       for (i = 0; i < DashboardConst.CarouselHelpText.length; i++) {
-        this.helpTextArray.push(DashboardConst.CarouselHelpText[i])
+        this.carouselhelptext.push(DashboardConst.CarouselHelpText[i])
       }
     }
   }
@@ -67,20 +68,7 @@ export default {
     margin: 0;
     text-align: right;       
     background-color: lightblue;color: navy;
- }
- .el-carousel__item h3 {
-    color: #475669;
-    font-size: 15px;
-    opacity: 0.75;
-    line-height: 20px;
-    margin: 0;
-  }
-  .el-carousel__item:nth-child(2n) {
-    background-color: lightblue;color: navy;
-  }
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: navy;color: lightblue;
-  }
+ } 
 .dashboard {
   &-container {
     margin: 30px;
