@@ -1,6 +1,6 @@
-# BriteCore PoC UI
+# VueJS PoC UI
 
-> A BriteCore PoC UI allow user to Create RiskTypes and Risk based on RiskTypes. User can browse RiskTypes and Risk. It uses Element UI & axios & iconfont & permission control & lint
+> A VueJS PoC UI allow user to Create RiskTypes and Risk based on RiskTypes. User can browse RiskTypes and Risk. It uses Element UI & axios & iconfont & permission control & lint
 
 ## Demo
 ![demo](https://github.com/MaheshBodas/vuejs-poc-ui-master/blob/master/blob/Dashboard.png)
@@ -31,4 +31,4 @@ npm run build --report
 [MIT](https://github.com/MaheshBodas/vuejs-poc-ui-master/LICENSE) license.
 
 Copyright (c) 2017-present PanJiaChen
-Copyright BriteCore PoC UI (c) 2018-present Mahesh Bodas
+Copyright VueJS PoC UI (c) 2018-present Mahesh Bodas
