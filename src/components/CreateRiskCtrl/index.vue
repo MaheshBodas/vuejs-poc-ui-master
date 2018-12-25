@@ -28,7 +28,7 @@
           </el-col>              
         </el-row>      
         <el-row :gutter="20" v-for="i in rowCount" :key="i">
-          <el-col :span="8" v-for="entry in itemCountInRow(i)" :key="entry.id">
+          <el-col :span="8" v-for="entry in itemsInRow(i)" :key="entry.id">
             <el-form-item label="temp" size="mini" :prop ="entry.risk_type_field_name">              
               <span slot="label">{{ entry.risk_type_field_name | capitalize }}</span>
               <risk-input v-bind:input_type="entry" v-bind:dataval="temp"></risk-input>		
@@ -60,7 +60,8 @@ import RiskInput from '@/components/RiskInput'
 import RiskTypeList from '@/components/RiskTypeList'
 import RotatingDisplay from '@/components/RotatingDisplay'
 import { RiskPostData, RiskCtrlConst } from './classes'
-import { RiskFieldInstance } from '../RiskInput/classes'
+// import { RiskFieldInstance } from '../RiskInput/classes'
+import { RiskFieldInstance } from '@/utils/riskfieldinstance'
 import { RequiredValidatorBuilder, RequiredNumberValidatorBuilder } from './classes.js'
 export default {
   name: 'create-risk-ctrl',
@@ -110,7 +111,7 @@ export default {
     }
   },
   methods: {
-    itemCountInRow: function(index) {
+    itemsInRow: function(index) {
       return this.temp.riskfields.slice((index - 1) * this.itemsPerRow, index * this.itemsPerRow)
     },
     selectRiskTypeChanged: function(selectedValue) {

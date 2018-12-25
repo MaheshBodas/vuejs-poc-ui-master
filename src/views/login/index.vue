@@ -2,7 +2,7 @@
   <div class="login-container">
     <el-form autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left" label-width="0px"
       class="card-box login-form">
-      <h3 class="title">VueJS Poc UI User</h3>
+      <h3 class="title">BriteCore Poc UI User</h3>
       <el-form-item prop="username">
         <span class="svg-container svg-container_login">
           <svg-icon icon-class="user" />
@@ -21,11 +21,7 @@
         <el-button type="primary" style="width:100%;" :loading="loading" @click.native.prevent="handleLogin">
           Sign in
         </el-button>
-      </el-form-item>
-      <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: poctest#1</span>
-      </div>
+      </el-form-item>      
     </el-form>
   </div>
 </template>
@@ -52,8 +48,8 @@ export default {
     }
     return {
       loginForm: {
-        username: 'mahesh.bodas',
-        password: 'Madhuri#1'
+        username: 'phil.reynolds',
+        password: 'poctest#1'
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
